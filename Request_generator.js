@@ -2,7 +2,7 @@ const mqtt = require("./Mqtt");
 const menu = require('./menu');
 module.exports.mqtt = mqtt;
 const TimeSlotMessage = require('./TimeSlotMessage')
-const requestNumber = 200;
+const requestNumber = 500;
 
 /**
  * Generates specific messages to be sent to the selected component 
@@ -46,7 +46,7 @@ function sendRequests(request){
     
     for(var i = 0; i < requestNumber; i++){
         mqtt.client.publish(request.topic, JSON.stringify(request.messages[i]));
-        console.log('No: '+ i +' message sent, Message: ' + JSON.stringify(request.messages[i]))
+        console.log('No: '+ (i+1) +' message sent, Message: ' + JSON.stringify(request.messages[i]))
     }
 } 
 
