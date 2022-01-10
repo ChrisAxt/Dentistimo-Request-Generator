@@ -5,4 +5,4 @@ The request generator is one of the components included in Dentistimos fault tol
 
 ## Components Responsibilities
 
-Send request to booking handler to test its stress tolerance
+Send request to selected component to test its stress tolerance
