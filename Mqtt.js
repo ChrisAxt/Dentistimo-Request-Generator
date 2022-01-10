@@ -4,10 +4,10 @@ const mqtt = require('mqtt')
 /** Different MQTT servers */
 const LOCALHOST = 'mqtt://127.0.0.1:1883'; //TODO: fill with the local mqtt address
 const HOST = 'mqtt://test.mosquitto.org'; //mosquitto test server address
-const options = {clientId:'Dentistimo Team5 - Availability Checker n°' + Math.random().toString(16).substr(2, 8),
+const options = {clientId:'Dentistimo Team5 - Rquest generator n°' + Math.random().toString(16).substr(2, 8),
     will: {
-        topic: "Team5/Dentistimo/AvailabilityChecker/LastWill",
-        payload: "Availability Checker has been disconnected from the system",
+        topic: "Team5/Dentistimo/RquestGenerator/LastWill",
+        payload: "Rquest generator has been disconnected from the system",
         qos: 1
     }
 }
