@@ -2,11 +2,11 @@ const mqtt = require("./Mqtt");
 const menu = require('./menu');
 module.exports.mqtt = mqtt;
 const TimeSlotMessage = require('./TimeSlotMessage')
-const requestNumber = 20;
+const requestNumber = 200;
 
 /**
- * 
- * @param {*} value 
+ * Generates specific messages to be sent to the selected component 
+ * @param value 
  */
 var generateMessage = function(value) {
     var request = {
@@ -17,12 +17,14 @@ var generateMessage = function(value) {
         case '1':
             request.messages = [];
             request.topic = 'get_all_clinics';
-            generateRequests(request)
+            sendRequests
+        (request)
             break;
         case '2':
             request.messages = TimeSlotMessage.generateMessage(requestNumber);
             request.topic = '/Team5/Dentistimo/GenerateTimeSlots'
-            generateRequests(request)
+            sendRequests
+        (request)
             break;
         case '3':
             console.log('This component\'s test has not been setup!')
@@ -35,11 +37,12 @@ var generateMessage = function(value) {
     }
     menu.printMenu();
 }
+
 /**
- * 
- * @param {*} request 
+ * Sends the generated request to the specified component via MQTT
+ * @param request 
  */
-function generateRequests(request){
+function sendRequests(request){
     
     for(var i = 0; i < requestNumber; i++){
         mqtt.client.publish(request.topic, JSON.stringify(request.messages[i]));

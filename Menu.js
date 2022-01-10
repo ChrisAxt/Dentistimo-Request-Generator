@@ -4,9 +4,7 @@ const requestGenerator = require('./Request_generator')
 
 const menuNumber = 4;
 
-/**
- * Waits for user input to close the booking handler. Closing the booking handler disconnects the component in a clean way from the system
- */
+
 module.exports.printMenu = function() {
     inquirer.prompt( [
         {

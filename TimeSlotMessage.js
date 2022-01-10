@@ -1,6 +1,11 @@
 const today = new Date('10/01/2022');
 const limit = new Date('10/01/2023');
 
+/**
+ * Generates unique messages for the timeSlot generator
+ * @param requestNumber 
+ * @returns an array of messages
+ */
 function generateMessage(requestNumber) {
     var messages = [];
     for(var i = 0; i < requestNumber; i++){
@@ -13,6 +18,11 @@ function generateMessage(requestNumber) {
     return messages;
 }
 
+/**
+ * Selects a message to send based on a randomly generated number
+ * @param value 
+ * @returns a message
+ */
 function clinicSelector(value) {
     var date = randomDate(today, limit);
     var weekday = new Array("sunday", "monday", "tuesday", "wednesday",
@@ -122,10 +132,22 @@ function clinicSelector(value) {
     }
 }
 
+/**
+ * Generates a random number between the specified interval
+ * @param min 
+ * @param max 
+ * @returns a number
+ */
 function randomIntFromInterval(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
-
+  
+/**
+ * Generates a random date between two specific dates
+ * @param start 
+ * @param end 
+ * @returns a date 
+ */
   function randomDate(start, end) {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
   }
