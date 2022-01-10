@@ -1,5 +1,5 @@
-const today = new Date('10/01/2022');
-const limit = new Date('10/01/2023');
+const today = new Date('1/10/2022');
+const limit = new Date('1/10/2023');
 
 /**
  * Generates unique messages for the timeSlot generator
@@ -141,7 +141,7 @@ function clinicSelector(value) {
 function randomIntFromInterval(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
-  
+
 /**
  * Generates a random date between two specific dates
  * @param start 
